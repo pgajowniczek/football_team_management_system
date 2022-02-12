@@ -1,8 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
-
 # staff function (coach, physiotherapist, etc.):
 class StaffFunction(models.Model):
     name = models.CharField(max_length=100)

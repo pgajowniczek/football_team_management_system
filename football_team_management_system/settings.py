@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'training_staff',
     'users',
     'league',
+    'api',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
