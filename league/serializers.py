@@ -36,3 +36,9 @@ class CourseOfTheGameSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CourseOfTheGame
         fields = ('id', 'minute', 'what_happened', 'player')
+
+
+class LeagueSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.League
+        fields = ('id', 'name')

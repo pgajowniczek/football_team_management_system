@@ -31,3 +31,8 @@ class ActionViewset(viewsets.ModelViewSet):
 class CourseOfTheGameViewset(viewsets.ModelViewSet):
     queryset = models.CourseOfTheGame.objects.all()
     serializer_class = serializers.CourseOfTheGameSerializer
+
+
+class LeagueViewset(viewsets.ModelViewSet):
+    queryset = models.League.objects.all()
+    serializer_class = serializers.LeagueSerializer

@@ -17,13 +17,14 @@ class Referee(models.Model):
 
     def __str__(self):
         pass
-       # return f"self.surname
+    # return f"self.surname
 
 
 class Stadium(models.Model):
     name = models.CharField(max_length=150)
     capacity = models.IntegerField()
     address = models.CharField(max_length=250)
+
     # post code
     # streety
 
@@ -52,7 +53,8 @@ class CourseOfTheGame(models.Model):
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
     # game as foreign key
 
-#new class liga
+
+# new class liga
 class League(models.Model):
     name = models.CharField(max_length=100)
-    
+    logo = models.ImageField(upload_to=None, height_field=None, width_field=None, max_length=100)

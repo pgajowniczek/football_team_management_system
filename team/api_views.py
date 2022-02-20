@@ -16,3 +16,18 @@ class PlayerViewset(viewsets.ModelViewSet):
 class WageViewset(viewsets.ModelViewSet):
     queryset = models.Wage.objects.all()
     serializer_class = serializers.WageSerializer
+
+
+class CurrencyViewset(viewsets.ModelViewSet):
+    queryset = models.Currency.objects.all()
+    serializer_class = serializers.CurrencySerializer
+
+
+class ExchangeRateViewset(viewsets.ModelViewSet):
+    queryset = models.ExchangeRate.objects.all()
+    serializer_class = serializers.ExchangeRateSerializer
+
+
+class InjuryViewset(viewsets.ModelViewSet):
+    queryset = models.Injury.objects.all()
+    serializer_class = serializers.InjurySerializer
