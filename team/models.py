@@ -33,7 +33,6 @@ class Currency(models.Model):
 
 # nowa klasa kurs walut (nazwe waluty, kurs) klucz obcy do nowej klasy currency
 class ExchangeRate(models.Model):
-    name = models.DecimalField(max_digits=10, decimal_places=2)
     exchange_rate = models.DecimalField(max_digits=10, decimal_places=2)
     currency = models.ForeignKey(Currency, on_delete=models.CASCADE)
 
@@ -44,6 +43,8 @@ class Wage(models.Model):
     start = models.DateField()
     end = models.DateField(blank=True, null=True)
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
+
+    #metoda - wyslij platnosc
 
 
 class Injury(models.Model):
