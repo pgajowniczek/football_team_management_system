@@ -23,10 +23,10 @@ class Referee(models.Model):
 class Stadium(models.Model):
     name = models.CharField(max_length=150)
     capacity = models.IntegerField()
-    address = models.CharField(max_length=250)
-
-    # post code
-    # streety
+    street = models.CharField(max_length=250)
+    post_code = models.CharField(max_length=6)
+    number = models.CharField(max_length=5)
+    city = models.CharField(max_length=250)
 
     def __str__(self):
         return self.name
@@ -44,6 +44,7 @@ class Action(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
+        self.name = self.name
         return self.name
 
 
@@ -52,6 +53,7 @@ class CourseOfTheGame(models.Model):
     what_happened = models.ForeignKey(Action, on_delete=models.CASCADE)
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
     # game as foreign key
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
 
 
 # new class liga
