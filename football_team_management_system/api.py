@@ -4,6 +4,8 @@ from league.api_views import RefereeFunctionViewset, RefereeViewset, StadiumView
     CourseOfTheGameViewset, LeagueViewset
 from training_staff.api_views import StaffFunctionViewset, StaffViewset
 from rest_framework_nested import routers
+from api_obce.client import external_connection
+
 
 router = routers.DefaultRouter()
 router.register(r'clubs', ClubViewset)
@@ -21,6 +23,8 @@ router.register(r'leagues', LeagueViewset)
 router.register(r'currencies', CurrencyViewset)
 router.register(r'exchange_rates', ExchangeRateViewset)
 router.register(r'injuries', InjuryViewset)
+#router.register(r'external_connection', external_connection)
+
 
 # DRF-Nested-Routers - test
 players_in_team_router = routers.NestedSimpleRouter(router, r'clubs', lookup='club')

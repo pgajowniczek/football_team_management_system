@@ -29,7 +29,7 @@ class CurrencySerializer(serializers.ModelSerializer):
 class ExchangeRateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ExchangeRate
-        fields = ('id', 'name', 'exchange_rate', 'currency')
+        fields = ('id', 'exchange_rate', 'currency')
 
 
 class InjurySerializer(serializers.ModelSerializer):

@@ -15,13 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, SpectacularRedocView
+
+from api_obce.client import external_connection
 from .api import router, players_in_team_router
 from league.views import ping
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
+    path('api/v1/external_connection', external_connection, name="external_connection"),
     path('api/v1/', include(players_in_team_router.urls)),
     path('api/auth/', include('djoser.urls.authtoken')),
     path('ping/', ping, name="ping"),
-]
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    # Optional UI:
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

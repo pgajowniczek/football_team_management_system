@@ -17,7 +17,7 @@ class RefereeSerializer(serializers.ModelSerializer):
 class StadiumSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Stadium
-        fields = ('id', 'name', 'capacity', 'address')
+        fields = ('id', 'name', 'capacity', 'street', 'post_code', 'number', 'city')
 
 
 class GameSerializer(serializers.ModelSerializer):

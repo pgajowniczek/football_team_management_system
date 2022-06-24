@@ -7,7 +7,7 @@ class RefereeFunction(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 
 class Referee(models.Model):
@@ -16,7 +16,7 @@ class Referee(models.Model):
     function = models.ForeignKey(RefereeFunction, on_delete=models.CASCADE)
 
     def __str__(self):
-        pass
+        return self.surname
     # return f"self.surname
 
 
@@ -60,3 +60,6 @@ class CourseOfTheGame(models.Model):
 class League(models.Model):
     name = models.CharField(max_length=100)
     logo = models.ImageField(upload_to='logos/', height_field=None, width_field=None)
+
+    def __str__(self):
+        return self.name

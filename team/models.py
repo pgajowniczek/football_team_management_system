@@ -25,6 +25,7 @@ class Player(models.Model):
     email = models.EmailField(max_length=254)
 
     def __str__(self):
+        self.surname = self.surname
         return self.surname
 
 
@@ -33,10 +34,13 @@ class Currency(models.Model):
     full_name = models.CharField(max_length=100)
     currency_shortcut = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.full_name
+
 
 # nowa klasa kurs walut (nazwe waluty, kurs) klucz obcy do nowej klasy currency
 class ExchangeRate(models.Model):
-    exchange_rate = models.DecimalField(max_digits=10, decimal_places=2)
+    exchange_rate = models.DecimalField(max_digits=7, decimal_places=1)
     currency = models.ForeignKey(Currency, on_delete=models.CASCADE)
 
 
@@ -60,10 +64,8 @@ class Wage(models.Model):
 
 
 class Injury(models.Model):
+    player = models.ForeignKey(Player, on_delete=models.CASCADE)
     start_date = models.DateField()
     end_date = models.DateField()
     description = models.TextField()
     main_doctor = models.ForeignKey(Staff, on_delete=models.CASCADE)
-
-
-
